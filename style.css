@@ -33,6 +33,7 @@ body#colors {
 
 #colors #box {
 /*    background: linear-gradient(46deg, black, white);*/
+    background: -webkit-radial-gradient(green, yellow, blue);
     background: radial-gradient(green, yellow, blue);
 }
 
@@ -78,6 +79,11 @@ body#colors {
 
 /* Animations & Transitions */
 
+@-webkit-keyframes box {
+    from { border-radius: 40px; background-color: red; top: 0; left: 0; }
+    to   { border-radius: 100px; background-color: black; top: 100px; left: 100px; }
+}
+
 @keyframes box {
     from { border-radius: 40px; background-color: red; top: 0; left: 0; }
     to   { border-radius: 100px; background-color: black; top: 100px; left: 100px; }
@@ -85,11 +91,17 @@ body#colors {
 
 #animations #box {
     position: relative;
+    -webkit-animation-name: box;
     animation-name: box;
+    -webkit-animation-duration: 10s;
     animation-duration: 10s;
+    -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
+    -webkit-animation-delay: 2s;
     animation-delay: 2s;
+    -webkit-animation-iteration-count: 3;
     animation-iteration-count: 3;
+    -webkit-animation-direction: alternate;
     animation-direction: alternate;
     
 /*   Shorthand
@@ -108,10 +120,16 @@ body#colors {
     background: red;
     width: 300px;
     height: 300px;
+    -webkit-transition: width 8s, height 2s, background 20s;
     transition: width 8s, height 2s, background 20s;
 }
 
 /* Buttons */
+
+@-webkit-keyframes buttonAnimation {
+    from { padding: 10px 20px; font-size: inherit; }
+    to   { padding: 15px 30px; font-size: 24px; }
+}
 
 @keyframes buttonAnimation {
     from { padding: 10px 20px; font-size: inherit; }
@@ -121,6 +139,7 @@ body#colors {
 .button {
     display: inline-block;
     background: #fc3;
+    background: -webkit-linear-gradient(#fc3, #f91);
     background: linear-gradient(#fc3, #f91);
     border: solid 1px #999;
     border-radius: 5px;
@@ -135,9 +154,13 @@ body#colors {
     border-color: #888;
     text-shadow: 0 1px 2px rgba(0,0,0,0.9);
     background: #f91;
+    background: -webkit-linear-gradient(bottom, #fc3, #f91);
     background: linear-gradient(to top, #fc3, #f91);
+    -webkit-animation-name: buttonAnimation;
     animation-name: buttonAnimation;
+    -webkit-animation-duration: .5s;
     animation-duration: .5s;
+    -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
 
@@ -147,10 +170,12 @@ body#colors {
 }
 
 .alt-button {
+    background: -webkit-radial-gradient(#fc3, #f91);
     background: radial-gradient(#fc3, #f91);
 }
 
 .alt-button:hover {
+    background: -webkit-radial-gradient(#f91, #fc3);
     background: radial-gradient(#f91, #fc3);
 }
 
@@ -163,16 +188,6 @@ body#colors {
     to      { opacity: 0.2; }
 }
 
-@-moz-keyframes starPulse {
-    from    { opacity: 1; }
-    to      { opacity: 0.2; }
-}
-
-@-o-keyframes starPulse {
-    from    { opacity: 1; }
-    to      { opacity: 0.2; }
-}
-
 @keyframes starPulse {
     from    { opacity: 1; }
     to      { opacity: 0.2; }
@@ -181,75 +196,31 @@ body#colors {
 /* SOLAR FLARE ANIMATION */
 @-webkit-keyframes sunFire {
     from {
-        -webkit-box-shadow: 0 0 50px #f5c91a;
-        -moz-box-shadow: 0 0 50px #f5c91a;
         box-shadow: 0 0 50px #f5c91a;
     }
     to {
-        -webkit-box-shadow: 0 0 200px #f5c91a;
-        -moz-box-shadow: 0 0 200px #f5c91a;
-        box-shadow: 0 0 200px #f5c91a;
-    }
-}
-
-@-moz-keyframes sunFire {
-    from {
-        -webkit-box-shadow: 0 0 50px #f5c91a;
-        -moz-box-shadow: 0 0 50px #f5c91a;
-        box-shadow: 0 0 50px #f5c91a;
-    }
-    to {
-        -webkit-box-shadow: 0 0 200px #f5c91a;
-        -moz-box-shadow: 0 0 200px #f5c91a;
-        box-shadow: 0 0 200px #f5c91a;
-    }
-}
-
-@-o-keyframes sunFire {
-    from {
-        -webkit-box-shadow: 0 0 50px #f5c91a;
-        -moz-box-shadow: 0 0 50px #f5c91a;
-        box-shadow: 0 0 50px #f5c91a;
-    }
-    to {
-        -webkit-box-shadow: 0 0 200px #f5c91a;
-        -moz-box-shadow: 0 0 200px #f5c91a;
         box-shadow: 0 0 200px #f5c91a;
     }
 }
 
 @keyframes sunFire {
     from {
-        -webkit-box-shadow: 0 0 50px #f5c91a;
-        -moz-box-shadow: 0 0 50px #f5c91a;
         box-shadow: 0 0 50px #f5c91a;
     }
     to {
-        -webkit-box-shadow: 0 0 200px #f5c91a;
-        -moz-box-shadow: 0 0 200px #f5c91a;
         box-shadow: 0 0 200px #f5c91a;
     }
 }
 
 /* ROTATE ANIMATION */
 @-webkit-keyframes spin {
-    from { transform: rotate(0); }
-    to   { transform: rotate(360deg); }
-}
-
-@-moz-keyframes spin {
-    from { transform: rotate(0); }
-    to   { transform: rotate(360deg); }
-}
-
-@-o-keyframes spin {
-    from { transform: rotate(0); }
-    to   { transform: rotate(360deg); }
+    from { -webkit-transform: rotate(0); transform: rotate(0); }
+    to   { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
 }
 
 @keyframes spin {
-    from { transform: rotate(0); }
-    to   { transform: rotate(360deg); }
+    from { -webkit-transform: rotate(0); transform: rotate(0); }
+    to   { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
 }
 
 
@@ -261,8 +232,6 @@ html, body {
 #universe {
     background: black;
     background: -webkit-radial-gradient(#555, #000);
-    background: -moz-radial-gradient(#555, #000);
-    background: -o-radial-gradient(#555, #000);
     background: radial-gradient(#555, #000);
 }
 
@@ -274,11 +243,8 @@ html, body {
     background: url('images/stars.png');
     
     -webkit-animation: starPulse 2s infinite alternate;
-    -moz-animation: starPulse 2s infinite alternate;
-    -o-animation: starPulse 2s infinite alternate;
     animation: starPulse 2s infinite alternate;
 }
-
 #sun {
     position: absolute;
     top: 50%;
@@ -288,24 +254,14 @@ html, body {
     margin-left: -100px;
     height: 200px;
     width: 200px;
-    
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
     border-radius: 100%;
     
     background: orange;
     background: -webkit-radial-gradient(#f5c313, #ec7e08);
-    background: -moz-radial-gradient(#f5c313, #ec7e08);
-    background: -o-radial-gradient(#f5c313, #ec7e08);
     background: radial-gradient(#f5c313, #ec7e08);
-    
-    -webkit-box-shadow: 0 0 50px #f5c91a;
-    -moz-box-shadow: 0 0 50px #f5c91a;
     box-shadow: 0 0 50px #f5c91a;
     
     -webkit-animation: sunFire 4s infinite alternate;
-    -moz-animation: sunFire 4s infinite alternate;
-    -o-animation: sunFire 4s infinite alternate;
     animation: sunFire 4s infinite alternate;
 }
 
@@ -318,14 +274,9 @@ html, body {
     z-index: 4;
     height: 700px;
     width: 600px;
-    
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
     border-radius: 100%;
     
     -webkit-animation: spin 30s linear infinite;
-    -moz-animation: spin 30s linear infinite;
-    -o-animation: spin 30s linear infinite;
     animation: spin 30s linear infinite;
         
 }
@@ -338,8 +289,6 @@ html, body {
     margin-top: -40px;
     
     -webkit-animation: spin 3s linear infinite;
-    -moz-animation: spin 3s linear infinite;
-    -o-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
 }
 
@@ -351,28 +300,18 @@ html, body {
     top: 50%;
     left: -20px;
     margin-top: -60px;
-    
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
     border-radius: 100%;
     
     -webkit-animation: spin 4s linear infinite reverse;
-    -moz-animation: spin 4s linear infinite reverse;
-    -o-animation: spin 4s linear infinite reverse;
     animation: spin 4s linear infinite reverse;
 }
-
 #moon {
     height: 20px;
     width: 20px;
     
     background: gray;
     background: -webkit-radial-gradient(#ddd, #888);
-    background: -moz-radial-gradient(#ddd, #888);
     background: radial-gradient(#ddd, #888);
-    
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
     border-radius: 100%;
 }
 
