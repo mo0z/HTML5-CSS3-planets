@@ -1,7 +1,7 @@
-#Moving Planets
-###**Getting started**
-###Technologies Used
-####HTML5, CSS3, Photoshop
+# Planets and Stars
+### **Getting started**
+### Technologies Used
+#### HTML5, CSS3, Photoshop
  - Run :  `git clone https://github.com/getwebem/planets-orbits.git`
  - Run :  `cd planets-orbits`
  - Run :  `Brackets .`
